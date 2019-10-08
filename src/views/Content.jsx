@@ -3,7 +3,7 @@ import { useWindowSize } from 'react-use'
 
 import { headerHeight, pages, keys, transitionTime } from '../constants'
 import { makeStyles } from '@material-ui/core'
-import Home from './Home'
+import Home from '../pages/Home'
 
 const useStyles = makeStyles({
 	container: { height: ({ height }) => height, position: 'absolute', width: '100%', overflow: 'hidden' },
@@ -25,7 +25,7 @@ export default ({ currentPageKey }) => {
 	return (
 		<div className={classes.container}>
 			<div className={classes.carousel}>
-				{pages.map(({ key, label }) => (
+				{pages.map(({ key }) => (
 					<div key={key} className={classes.pageWrapper}>
 						<Page pageKey={key} />
 					</div>
