@@ -1,10 +1,10 @@
 import React from 'react'
 import { makeStyles, MenuList, MenuItem, Typography } from '@material-ui/core'
 
-import { pages } from '../constants'
+import { pages, headerHeight } from '../constants'
 
 const useStyles = makeStyles(({ spacing }) => ({
-	container: { position: 'absolute', left: '50px', top: '50px' },
+	container: { position: 'absolute', left: '50px', top: `${headerHeight + 50}px` },
 	label: { margin: spacing(0, 1) },
 }))
 

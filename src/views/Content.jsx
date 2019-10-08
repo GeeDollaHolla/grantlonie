@@ -10,15 +10,14 @@ const useStyles = makeStyles({
 	carousel: {
 		position: 'absolute',
 		width: '100%',
-		transform: ({ height, currentPageIndex }) => `translateY(${-height * currentPageIndex}px)`,
+		transform: ({ height, currentPageIndex }) => `translateY(${headerHeight - (height - headerHeight) * currentPageIndex}px)`,
 		transition: `${transitionTime}ms`,
 	},
-	pageWrapper: { height: ({ height }) => height, width: '100%' },
+	pageWrapper: { height: ({ height }) => height - headerHeight, width: '100%' },
 })
 
 export default ({ currentPageKey }) => {
-	const { height: windowHeight } = useWindowSize()
-	const height = windowHeight - headerHeight
+	const { height } = useWindowSize()
 	const currentPageIndex = pages.findIndex(({ key }) => key === currentPageKey)
 	const classes = useStyles({ height, currentPageIndex })
 
