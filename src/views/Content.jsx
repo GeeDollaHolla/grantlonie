@@ -3,7 +3,7 @@ import { useWindowSize } from 'react-use'
 
 import { headerHeight, pages, keys, transitionTime } from '../constants'
 import { makeStyles } from '@material-ui/core'
-import Home from '../pages/Home'
+import { Home, Projects, About } from '../pages'
 
 const useStyles = makeStyles({
 	container: { height: ({ height }) => height, position: 'absolute', width: '100%', overflow: 'hidden' },
@@ -41,9 +41,9 @@ const Page = ({ pageKey }) =>
 			case keys.home:
 				return <Home />
 			case keys.projects:
-				return <Home />
+				return <Projects />
 			case keys.about:
-				return <Home />
+				return <About />
 			default:
 				console.error('No page exists')
 		}

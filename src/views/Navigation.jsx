@@ -3,20 +3,21 @@ import { makeStyles, MenuList, MenuItem, Typography } from '@material-ui/core'
 
 import { pages } from '../constants'
 
-const useStyles = makeStyles(() => ({
-	container: { position: 'absolute' },
+const useStyles = makeStyles(({ spacing }) => ({
+	container: { position: 'absolute', left: '50px', top: '50px' },
+	label: { margin: spacing(0, 1) },
 }))
 
 export default ({ currentPageKey, onPageChange }) => {
-	const { container } = useStyles()
+	const classes = useStyles()
 
 	return (
-		<div className={container}>
+		<div className={classes.container}>
 			<MenuList>
 				{pages.map(({ key, label, icon }) => (
 					<MenuItem key={key} selected={key === currentPageKey} value={key} onClick={() => onPageChange(key)}>
 						{icon}
-						<Typography>{label}</Typography>
+						<Typography className={classes.label}>{label}</Typography>
 					</MenuItem>
 				))}
 			</MenuList>
